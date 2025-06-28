@@ -37,7 +37,7 @@ class NetworkDataETL():
     
     def insertDataToMongoDB(self,records,database,collection):
         try:
-            self.mongoClient = pymongo.MongoClient(MONGO_DB_URL)
+            self.mongoClient = pymongo.MongoClient(MONGO_DB_URL,tlsCAFile=ca)
             #database refers to a MongoDB database (a logical container for collections) and not a Cluster
             #just names assigments
             self.database = self.mongoClient[database]
