@@ -29,3 +29,10 @@ class DataValidationArtifact:
     sechema_validation_report_file_path:str
 
 
+@dataclass
+class DATATransformationArtifact:
+    transformationObjectFilePAth:str
+    transformedTrainFilePath:str
+    transformedTestFilePath:str
+
+

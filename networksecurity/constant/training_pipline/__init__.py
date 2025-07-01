@@ -40,3 +40,18 @@ DATA_VALIDATION_DRIFT_REPORT_FILE_NAME:str = "report.yaml"
 DATA_VALIDATION_SCHEMA_FILE_NAME:str = "schema_validation.yaml"
 SCHEMA_FILE_PATH = os.path.join("data_schema","schema.yaml")
 
+
+"""
+Data Validation relayed constant
+"""
+
+DATA_TRANSFORMATION_DIR_NAME:str = "data_transformation"
+DATA_TRANSFORMATION_TRANSFORMATIONOBJ_FILE_NAME:str = "transformationObj.pkl"
+
+DATA_TRANSFORMATION_IMPUTER_PARAMS:dict = {
+    "missing_values":np.nan,
+    "n_neighbors":3,
+    "weights":"uniform"
+}
+
+

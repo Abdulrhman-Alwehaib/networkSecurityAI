@@ -8,7 +8,8 @@ from scipy.stats import ks_2samp
 import pandas as pd
 import os
 import sys
-from networksecurity.utils.main_utils import read_yaml_file,writeYampleFile
+from networksecurity.utils.main_utils import (read_yaml_file,writeYampleFile
+                                              ,readData)
 
 #Intial Stage
 class DATAValidation:
@@ -22,14 +23,6 @@ class DATAValidation:
             self._schema_config = read_yaml_file(SCHEMA_FILE_PATH)
         except Exception as e:
             NetworkSecurityException(e,sys)
-    
-    @staticmethod
-    def readData(filePath)->pd.DataFrame:
-        try:
-            
-            return pd.read_csv(filePath)
-        except Exception as e:
-            raise NetworkSecurityException(e,sys)
         
 
     def validateNumberOfCol(self,dataframe:pd.DataFrame) ->bool:
@@ -116,8 +109,8 @@ class DATAValidation:
             trainFilePath = self.dataIngestionartifact.trainingFilePath
             testFilePath = self.dataIngestionartifact.testFilePath
 
-            trainDataFram:pd.DataFrame = DATAValidation.readData(trainFilePath)
-            testDataFrame:pd.DataFrame = DATAValidation.readData(testFilePath)
+            trainDataFram:pd.DataFrame = readData(trainFilePath)
+            testDataFrame:pd.DataFrame = readData(testFilePath)
 
 
             #Validation of number of coloumns

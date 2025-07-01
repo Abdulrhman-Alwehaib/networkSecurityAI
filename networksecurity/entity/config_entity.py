@@ -43,7 +43,7 @@ class DataIngestionConfig:
 
 
 
-class DATAVALIDATIONConfig():
+class DATAVALIDATIONConfig:
     def __init__(self,training_pipline_config:TrainingPiplineConfig):
         self.data_validation_dir:str = os.path.join(training_pipline_config.artifact_dir,training_pipline.DATA_VALIDATION_DIR_NAME)
         self.valid_data_dir:str = os.path.join(self.data_validation_dir,training_pipline.DATA_VALIDATION_VALID_DIR)
@@ -64,3 +64,11 @@ class DATAVALIDATIONConfig():
         )
 
 
+
+class DataTransformationConfig:
+    def __init__(self,training_piplineConfig:TrainingPiplineConfig):
+        self.dataTransformationDir = os.path.join(training_piplineConfig.artifact_dir,training_pipline.DATA_TRANSFORMATION_DIR_NAME)
+        self.dataTransformationObj = os.path.join(self.dataTransformationDir,training_pipline.DATA_TRANSFORMATION_TRANSFORMATIONOBJ_FILE_NAME)
+        self.DataTransformedTrainPath = os.path.join(self.dataTransformationDir,training_pipline.TRAIN_FILE_NAME.replace("csv","npy"))
+        self.DataTransformedTestPath = os.path.join(self.dataTransformationDir,training_pipline.TEST_FILE_NAME.replace("csv","npy"))
+        
