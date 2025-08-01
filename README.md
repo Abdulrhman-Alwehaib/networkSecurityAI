@@ -1,1 +1,1 @@
-### Network Security AI project for phising Data
+### MLOps Network Security AI project for phising Data
